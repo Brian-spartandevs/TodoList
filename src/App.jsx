@@ -28,10 +28,29 @@ export const App = () => {
     setTarea("");
   };
 
+  const borrarTarea = (id) => {
+    const tareasActualizadas = tareas.filter((tarea) => {
+      return tarea.id != id;
+    });
+    setTareas(tareasActualizadas);
+  };
+
   return (
     <>
       <h2>TodoList</h2>
-      <Form handleChange={handleChange} addTask={addTask} tarea={tarea} />
+
+      <Form
+        handleChange={handleChange}
+        addTask={addTask}
+        tarea={tarea}
+      />
+
+      <Task
+        key={tarea.id}
+        id={tarea.id}
+        tarea={tarea}
+        borrarTarea={borrarTarea}
+      />
     </>
   );
 };
