@@ -39,18 +39,16 @@ export const App = () => {
     <>
       <h2>TodoList</h2>
 
-      <Form
-        handleChange={handleChange}
-        addTask={addTask}
-        tarea={tarea}
-      />
+      <Form handleChange={handleChange} addTask={addTask} tarea={tarea} />
 
-      <Task
-        key={tarea.id}
-        id={tarea.id}
-        tarea={tarea}
-        borrarTarea={borrarTarea}
-      />
+      {tareas.map((tarea) => (
+        <Task
+          key={tarea.id}
+          id={tarea.id}
+          tarea={tarea}
+          borrarTarea={borrarTarea}
+        />
+      ))}
     </>
   );
 };
